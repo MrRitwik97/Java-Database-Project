@@ -313,7 +313,87 @@ public class EmployeeDatabase implements ActionListener
 				}
 				try
 				{
+					ps = con.prepareStatement("Insert into EmpDetails values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+					int empID = Integer.parseInt(txtID.getText());
+					String empName = txtName.getText();
+					String empAddress = txtAddress.getText();
+					String empMobile = txtMobile.getText();
+					String empQuali = (String)cbEducation.getSelectedItem();
+
+					ps.setInt(1, empID);
+					ps.setString(2, empName);
+					ps.setString(3, empAddress);
+					ps.setString(4, empMobile);
+					ps.setString(10, empQuali);
+
+					if(rbMale.isSelected()==true)
+					{
+						ps.setString(5, "male");
+					}
+					else if(rbFemale.isSelected()==true);
+					{
+						ps.setString(5, "female");
+					}
+
+					if(chkCricket.isSelected()==true)
+					{
+						ps.setString(6, "cricket");
+					}
+					else
+					{
+						ps.setString(6, "");
+					}
 					
+					if(chkFootball.isSelected()==true)
+					{
+						ps.setString(7, "football");
+					}
+					else
+					{
+						ps.setString(7, "");
+					}
+					
+					if(chkBadminton.isSelected()==true)
+					{
+						ps.setString(8, "badminton");
+					}
+					else
+					{
+						ps.setString(8, "");
+					}
+					
+					if(chkGym.isSelected()==true)
+					{
+						ps.setString(9, "gym");
+					}
+					else
+					{
+						ps.setString(9, "");
+					}
+
+					int i = ps.executeUpdate();
+					JOptionPane.showMessageDialog(frm, "Record Added");
+
+					txtID.setText("");
+					txtName.setText("");
+					txtAddress.setText("");
+					txtMobile.setText("");		
+
+					bg.remove(rbMale);
+					bg.remove(rbFemale);
+			
+					rbMale.setSelected(false);
+					rbFemale.setSelected(false);
+
+					bg.add(rbMale);
+					bg.add(rbFemale);
+			
+					chkCricket.setSelected(false);
+					chkFootball.setSelected(false);
+					chkBadminton.setSelected(false);
+					chkGym.setSelected(false);
+			
+					cbEducation.setSelectedItem("Select Education");
 				}	
 			
 			catch(Exception e)
@@ -436,8 +516,31 @@ public class EmployeeDatabase implements ActionListener
 			try
 			{
 				ps = con.prepareStatement("delete EmpDetails where id = ?");
-				ps.setInt(1, 1);
+				ps.setInt(1, Integer.parseInt(txtID.getText()));
 				int i = ps.executeUpdate();
+
+				JOptionPane.showMessageDialog(frm,"Record Deleted");
+
+				txtID.setText("");
+				txtName.setText("");
+				txtAddress.setText("");
+				txtMobile.setText("");		
+
+				bg.remove(rbMale);
+				bg.remove(rbFemale);
+			
+				rbMale.setSelected(false);
+				rbFemale.setSelected(false);
+
+				bg.add(rbMale);
+				bg.add(rbFemale);
+			
+				chkCricket.setSelected(false);
+				chkFootball.setSelected(false);
+				chkBadminton.setSelected(false);
+				chkGym.setSelected(false);
+			
+				cbEducation.setSelectedItem("Select Education");
 			}
 			catch(Exception e)
 			{
