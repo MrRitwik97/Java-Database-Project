@@ -251,6 +251,19 @@ public class EmployeeDatabase implements ActionListener
 		lblHobby.setHorizontalAlignment(JLabel.CENTER);
 		lblEducation.setHorizontalAlignment(JLabel.CENTER);
 	}
+	
+	public void searchOperation()
+	{
+		try
+		{
+			
+		}
+		
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+	}
 
 	public void actionPerformed(ActionEvent ae)
 	{
@@ -593,5 +606,6 @@ public class EmployeeDatabase implements ActionListener
 		obj.fontChange();
 		obj.setLabelAlignment();
 		obj.databaseConnection();
+		obj.searchOperation();
 	}
 }
