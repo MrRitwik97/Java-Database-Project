@@ -135,6 +135,18 @@ public class EmployeeDatabase implements ActionListener
 
 		frm.add(pnlCenter,BorderLayout.CENTER);
 		frm.add(pnlSouth,BorderLayout.SOUTH);
+		
+		txtID.setEditable(false);
+		txtName.setEditable(false);
+		txtAddress.setEditable(false);
+		txtMobile.setEditable(false);
+		rbMale.setEnabled(false);
+		rbFemale.setEnabled(false);
+		chkCricket.setEnabled(false);
+		chkFootball.setEnabled(false);
+		chkBadminton.setEnabled(false);
+		chkGym.setEnabled(false);
+		cbEducation.setEnabled(false);
 	}
 
 	public void displayComp()
@@ -407,7 +419,7 @@ public class EmployeeDatabase implements ActionListener
 					chkGym.setSelected(false);
 			
 					cbEducation.setSelectedItem("Select Education");
-				}	
+				}
 			
 			catch(Exception e)
 			{
@@ -452,6 +464,18 @@ public class EmployeeDatabase implements ActionListener
 			{
 				rs.first();
 				data();
+				
+				txtID.setEditable(false);
+				txtName.setEditable(false);
+				txtAddress.setEditable(false);
+				txtMobile.setEditable(false);
+				rbMale.setEnabled(false);
+				rbFemale.setEnabled(false);
+				chkCricket.setEnabled(false);
+				chkFootball.setEnabled(false);
+				chkBadminton.setEnabled(false);
+				chkGym.setEnabled(false);
+				cbEducation.setEnabled(false);
 			}
 			catch(Exception e)
 			{
@@ -472,6 +496,17 @@ public class EmployeeDatabase implements ActionListener
 					rs.next();
 					data();
 				}
+				txtID.setEditable(false);
+				txtName.setEditable(false);
+				txtAddress.setEditable(false);
+				txtMobile.setEditable(false);
+				rbMale.setEnabled(false);
+				rbFemale.setEnabled(false);
+				chkCricket.setEnabled(false);
+				chkFootball.setEnabled(false);
+				chkBadminton.setEnabled(false);
+				chkGym.setEnabled(false);
+				cbEducation.setEnabled(false);
 			}
 			catch(Exception e)
 			{
@@ -492,6 +527,17 @@ public class EmployeeDatabase implements ActionListener
 					rs.previous();
 					data();
 				}
+				txtID.setEditable(false);
+				txtName.setEditable(false);
+				txtAddress.setEditable(false);
+				txtMobile.setEditable(false);
+				rbMale.setEnabled(false);
+				rbFemale.setEnabled(false);
+				chkCricket.setEnabled(false);
+				chkFootball.setEnabled(false);
+				chkBadminton.setEnabled(false);
+				chkGym.setEnabled(false);
+				cbEducation.setEnabled(false);
 			}
 			catch(Exception e)
 			{
@@ -505,6 +551,18 @@ public class EmployeeDatabase implements ActionListener
 			{
 				rs.last();
 				data();
+				
+				txtID.setEditable(false);
+				txtName.setEditable(false);
+				txtAddress.setEditable(false);
+				txtMobile.setEditable(false);
+				rbMale.setEnabled(false);
+				rbFemale.setEnabled(false);
+				chkCricket.setEnabled(false);
+				chkFootball.setEnabled(false);
+				chkBadminton.setEnabled(false);
+				chkGym.setEnabled(false);
+				cbEducation.setEnabled(false);
 			}
 			catch(Exception e)
 			{
