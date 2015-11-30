@@ -4,17 +4,17 @@ import java.awt.event.*;
 import java.sql.*;
 import java.io.*;
 
-public class EmployeeDatabase implements ActionListener
+public class EmployeeDatabase implements ActionListener, KeyListener
 {
 	JFrame frm;
-	JLabel lblApplication, lblApplication2, lblID, lblName, lblAddress, lblMobile, lblGender, lblHobby, lblEducation;
+	JLabel lblSearchName, lblID, lblName, lblAddress, lblMobile, lblGender, lblHobby, lblEducation, lblDialogBox1, lblDialogBox2, lblDialogBox3, lblDialogBox4, lblDialogBox5, lblDialogBox6, lblDialogBox7, lblDialogBox8, lblDialogBox9, lblDialogBox10, lblDialogBox11, lblDialogBox12, lblDialogBox13, lblDialogBox14, lblDialogBox15;
 	JTextField txtID, txtName, txtMobile;
 	JTextArea txtAddress;
 	JScrollPane sp;
 	JRadioButton rbMale, rbFemale;
 	ButtonGroup bg;
 	JCheckBox chkCricket, chkBadminton, chkFootball, chkGym;
-	JComboBox cbEducation;
+	JComboBox cbEducation, cbSearchName;
 	JButton btnFirst, btnNext, btnPrev, btnLast, btnAdd, btnUpdate, btnDelete, btnClear, btnExit;
 	JPanel pnlCenter, pnlSouth, pnlGender, pnlHobby;
 	BorderLayout br;
@@ -33,8 +33,7 @@ public class EmployeeDatabase implements ActionListener
 
 		frm = new JFrame("Employee Database");
 
-		lblApplication = new JLabel("Employee ");
-		lblApplication2 = new JLabel("Database");
+		lblSearchName = new JLabel("Search By Name");
 		lblID = new JLabel("ID");
 		lblName = new JLabel("Name");
 		lblAddress = new JLabel("Address");
@@ -42,6 +41,21 @@ public class EmployeeDatabase implements ActionListener
 		lblGender = new JLabel("Gender");
 		lblHobby = new JLabel("Hobbies");
 		lblEducation = new JLabel("Education");
+		lblDialogBox1 = new JLabel("Enter The Employee ID");
+		lblDialogBox2 = new JLabel("Enter The Employee Name");
+		lblDialogBox3 = new JLabel("Enter The Employee Address");
+		lblDialogBox4 = new JLabel("Enter Employee Mobile Number");
+		lblDialogBox5 = new JLabel("Mobile No Is Less Than 10 Digits");
+		lblDialogBox6 = new JLabel("Mobile No Must Be Of 10 Digits Only");
+		lblDialogBox7 = new JLabel("Select Valid Gender");
+		lblDialogBox8 = new JLabel("Please Select Valid Education");
+		lblDialogBox9 = new JLabel("Record Added");
+		lblDialogBox10 = new JLabel("You are in last record");
+		lblDialogBox11 = new JLabel("You are on first record");
+		lblDialogBox12 = new JLabel("Record Deleted");
+		lblDialogBox13 = new JLabel("Type proper name.");
+		lblDialogBox14 = new JLabel("Mobile number must be of 10 numbers.");
+		lblDialogBox15 = new JLabel("Mobile number must be of 10 numbers.");
 
 		txtID = new JTextField(2);
 		txtName = new JTextField(10);
@@ -60,6 +74,7 @@ public class EmployeeDatabase implements ActionListener
 		chkGym = new JCheckBox("Gym");
 
 		cbEducation = new JComboBox(Education);
+		cbSearchName = new JComboBox();
 
 		btnFirst = new JButton("First");
 		btnLast = new JButton("Last");
@@ -89,8 +104,8 @@ public class EmployeeDatabase implements ActionListener
 
 		pnlCenter.setLayout(gr1);
 		
-		pnlCenter.add(lblApplication);
-		pnlCenter.add(lblApplication2);
+		pnlCenter.add(lblSearchName);
+		pnlCenter.add(cbSearchName);
 
 		pnlCenter.add(lblID);
 		pnlCenter.add(txtID);
@@ -135,24 +150,20 @@ public class EmployeeDatabase implements ActionListener
 
 		frm.add(pnlCenter,BorderLayout.CENTER);
 		frm.add(pnlSouth,BorderLayout.SOUTH);
-		
-		txtID.setEditable(false);
-		txtName.setEditable(false);
-		txtAddress.setEditable(false);
-		txtMobile.setEditable(false);
-		rbMale.setEnabled(false);
-		rbFemale.setEnabled(false);
-		chkCricket.setEnabled(false);
-		chkFootball.setEnabled(false);
-		chkBadminton.setEnabled(false);
-		chkGym.setEnabled(false);
-		cbEducation.setEnabled(false);
 	}
 
 	public void displayComp()
 	{
 		frm.setVisible(true);
 		frm.setSize(1366,730);
+		frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frm.setResizable(true);
+		frm.setTitle("Employee Database");
+		
+		txtID.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+		txtName.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+		txtMobile.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+		sp.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 	}
 
 	public void data()
@@ -205,13 +216,11 @@ public class EmployeeDatabase implements ActionListener
 
 	public void fontChange()
 	{
-		// Creating new Font
+		// Creating new Font object
 		Font font = new Font("Consolas",Font.BOLD,16);
-		Font font2 = new Font("Times New Roman",Font.BOLD,20);
 
 		// Applying font to labels
-		lblApplication.setFont(font2);
-		lblApplication2.setFont(font2);
+		lblSearchName.setFont(font);
 		lblID.setFont(font);
 		lblName.setFont(font);
 		lblAddress.setFont(font);
@@ -219,6 +228,21 @@ public class EmployeeDatabase implements ActionListener
 		lblGender.setFont(font);
 		lblHobby.setFont(font);
 		lblEducation.setFont(font);
+		lblDialogBox1.setFont(font);
+		lblDialogBox2.setFont(font);
+		lblDialogBox3.setFont(font);
+		lblDialogBox4.setFont(font);
+		lblDialogBox5.setFont(font);
+		lblDialogBox6.setFont(font);
+		lblDialogBox7.setFont(font);
+		lblDialogBox8.setFont(font);
+		lblDialogBox9.setFont(font);
+		lblDialogBox10.setFont(font);
+		lblDialogBox11.setFont(font);
+		lblDialogBox12.setFont(font);
+		lblDialogBox13.setFont(font);
+		lblDialogBox14.setFont(font);
+		lblDialogBox15.setFont(font);
 
 		// Applying font to textfields
 		txtID.setFont(font);
@@ -253,8 +277,7 @@ public class EmployeeDatabase implements ActionListener
 
 	public void setLabelAlignment()
 	{
-		lblApplication.setHorizontalAlignment(JLabel.RIGHT);
-		lblApplication2.setHorizontalAlignment(JLabel.LEFT);
+		lblSearchName.setHorizontalAlignment(JLabel.CENTER);
 		lblID.setHorizontalAlignment(JLabel.CENTER);
 		lblName.setHorizontalAlignment(JLabel.CENTER);
 		lblAddress.setHorizontalAlignment(JLabel.CENTER);
@@ -262,19 +285,6 @@ public class EmployeeDatabase implements ActionListener
 		lblGender.setHorizontalAlignment(JLabel.CENTER);
 		lblHobby.setHorizontalAlignment(JLabel.CENTER);
 		lblEducation.setHorizontalAlignment(JLabel.CENTER);
-	}
-	
-	public void searchOperation()
-	{
-		try
-		{
-			
-		}
-		
-		catch(Exception e)
-		{
-			System.out.println(e);
-		}
 	}
 
 	public void actionPerformed(ActionEvent ae)
@@ -299,42 +309,42 @@ public class EmployeeDatabase implements ActionListener
 
 				if(txtID.getText().equals(""))
 				{
-					JOptionPane.showMessageDialog(frm,"Enter The Employee ID");
+					JOptionPane.showMessageDialog(frm,lblDialogBox1);
 				}
 			
 				else if(txtName.getText().equals(""))
 				{
-					JOptionPane.showMessageDialog(frm,"Enter The Employee Name");
+					JOptionPane.showMessageDialog(frm,lblDialogBox2);
 				}
 			
 				else if(txtAddress.getText().equals(""))
 				{
-					JOptionPane.showMessageDialog(frm,"Enter The Employee Address");
+					JOptionPane.showMessageDialog(frm,lblDialogBox3);
 				}
 		
 				else if(txtMobile.getText().equals(""))
 				{
-					JOptionPane.showMessageDialog(frm,"Enter Employee Mobile Number");
+					JOptionPane.showMessageDialog(frm,lblDialogBox4);
 				}
 			
 				else if(mobileNoLength<10)
 				{
-					JOptionPane.showMessageDialog(frm,"Mobile No Is Less Than 10 Digits");
+					JOptionPane.showMessageDialog(frm,lblDialogBox5);
 				}
 			
 				else if(mobileNoLength>10)
 				{
-					JOptionPane.showMessageDialog(frm,"Mobile No Must Be Of 10 Digits Only");
+					JOptionPane.showMessageDialog(frm,lblDialogBox6);
 				}
 			
 				else if((rbMale.isSelected()==false)&&(rbFemale.isSelected()==false))
 				{
-					JOptionPane.showMessageDialog(frm,"Select Valid Gender");
+					JOptionPane.showMessageDialog(frm,lblDialogBox7);
 				}
 			
 				else if(cbEducation.getSelectedItem().equals("Select Education"))
 				{
-					JOptionPane.showMessageDialog(frm,"Please Select Valid Education");
+					JOptionPane.showMessageDialog(frm,lblDialogBox8);
 				}
 				try
 				{
@@ -397,7 +407,7 @@ public class EmployeeDatabase implements ActionListener
 					}
 
 					int i = ps.executeUpdate();
-					JOptionPane.showMessageDialog(frm, "Record Added");
+					JOptionPane.showMessageDialog(frm, lblDialogBox9);
 
 					txtID.setText("");
 					txtName.setText("");
@@ -419,7 +429,7 @@ public class EmployeeDatabase implements ActionListener
 					chkGym.setSelected(false);
 			
 					cbEducation.setSelectedItem("Select Education");
-				}
+				}	
 			
 			catch(Exception e)
 			{
@@ -464,18 +474,6 @@ public class EmployeeDatabase implements ActionListener
 			{
 				rs.first();
 				data();
-				
-				txtID.setEditable(false);
-				txtName.setEditable(false);
-				txtAddress.setEditable(false);
-				txtMobile.setEditable(false);
-				rbMale.setEnabled(false);
-				rbFemale.setEnabled(false);
-				chkCricket.setEnabled(false);
-				chkFootball.setEnabled(false);
-				chkBadminton.setEnabled(false);
-				chkGym.setEnabled(false);
-				cbEducation.setEnabled(false);
 			}
 			catch(Exception e)
 			{
@@ -489,24 +487,13 @@ public class EmployeeDatabase implements ActionListener
 			{
 				if(rs.isLast())
 				{
-					JOptionPane.showMessageDialog(frm,"You are in last record");
+					JOptionPane.showMessageDialog(frm,lblDialogBox10);
 				}
 				else
 				{
 					rs.next();
 					data();
 				}
-				txtID.setEditable(false);
-				txtName.setEditable(false);
-				txtAddress.setEditable(false);
-				txtMobile.setEditable(false);
-				rbMale.setEnabled(false);
-				rbFemale.setEnabled(false);
-				chkCricket.setEnabled(false);
-				chkFootball.setEnabled(false);
-				chkBadminton.setEnabled(false);
-				chkGym.setEnabled(false);
-				cbEducation.setEnabled(false);
 			}
 			catch(Exception e)
 			{
@@ -520,24 +507,13 @@ public class EmployeeDatabase implements ActionListener
 			{
 				if (rs.isFirst())
 				{
-					JOptionPane.showMessageDialog(frm,"You are on first record");
+					JOptionPane.showMessageDialog(frm,lblDialogBox11);
 				}
 				else
 				{
 					rs.previous();
 					data();
 				}
-				txtID.setEditable(false);
-				txtName.setEditable(false);
-				txtAddress.setEditable(false);
-				txtMobile.setEditable(false);
-				rbMale.setEnabled(false);
-				rbFemale.setEnabled(false);
-				chkCricket.setEnabled(false);
-				chkFootball.setEnabled(false);
-				chkBadminton.setEnabled(false);
-				chkGym.setEnabled(false);
-				cbEducation.setEnabled(false);
 			}
 			catch(Exception e)
 			{
@@ -551,18 +527,6 @@ public class EmployeeDatabase implements ActionListener
 			{
 				rs.last();
 				data();
-				
-				txtID.setEditable(false);
-				txtName.setEditable(false);
-				txtAddress.setEditable(false);
-				txtMobile.setEditable(false);
-				rbMale.setEnabled(false);
-				rbFemale.setEnabled(false);
-				chkCricket.setEnabled(false);
-				chkFootball.setEnabled(false);
-				chkBadminton.setEnabled(false);
-				chkGym.setEnabled(false);
-				cbEducation.setEnabled(false);
 			}
 			catch(Exception e)
 			{
@@ -590,7 +554,7 @@ public class EmployeeDatabase implements ActionListener
 				ps.setInt(1, Integer.parseInt(txtID.getText()));
 				int i = ps.executeUpdate();
 
-				JOptionPane.showMessageDialog(frm,"Record Deleted");
+				JOptionPane.showMessageDialog(frm,lblDialogBox12);
 
 				txtID.setText("");
 				txtName.setText("");
@@ -631,6 +595,9 @@ public class EmployeeDatabase implements ActionListener
 		btnDelete.addActionListener(this);
 		btnClear.addActionListener(this);
 		btnExit.addActionListener(this);
+		
+		txtName.addKeyListener(this);
+		txtMobile.addKeyListener(this);
 	}
 
 	public void databaseConnection()
@@ -654,6 +621,42 @@ public class EmployeeDatabase implements ActionListener
 		}
 	}
 
+	public void keyPressed(KeyEvent KeyEvt)
+	{}
+
+	public void keyReleased(KeyEvent keyEvt)
+	{}
+
+	public void keyTyped(KeyEvent keyEvt)
+	{
+		String strMobLn = txtMobile.getText();
+		int mobLength =strMobLn.length();
+		
+		if(keyEvt.getSource().equals(txtName))
+		{
+			if(keyEvt.getKeyChar()>='0' && keyEvt.getKeyChar()<='9')
+			{
+				JOptionPane.showMessageDialog(frm,lblDialogBox13);
+				keyEvt.consume();
+			}
+		}
+		else if(keyEvt.getSource().equals(txtMobile))
+		{
+			if((keyEvt.getKeyChar()>='0' && keyEvt.getKeyChar()<='9') || (keyEvt.getKeyChar()==8))
+			{}
+			else
+			{
+				JOptionPane.showMessageDialog(frm,lblDialogBox14);
+				keyEvt.consume();
+			}
+			if(mobLength>=10)
+			{
+				JOptionPane.showMessageDialog(frm,lblDialogBox15);
+				keyEvt.consume();
+			}
+		}
+	}
+
  	public static void main(String[] args)
 	{
 		EmployeeDatabase obj = new EmployeeDatabase();
@@ -664,6 +667,5 @@ public class EmployeeDatabase implements ActionListener
 		obj.fontChange();
 		obj.setLabelAlignment();
 		obj.databaseConnection();
-		obj.searchOperation();
 	}
 }
