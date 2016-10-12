@@ -160,6 +160,7 @@ public class EmployeeDatabase implements ActionListener, KeyListener
 		frm.setResizable(true);
 		frm.setTitle("Employee Database");
 		
+		
 		txtID.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 		txtName.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 		txtMobile.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -474,6 +475,7 @@ public class EmployeeDatabase implements ActionListener, KeyListener
 			{
 				rs.first();
 				data();
+				enable1();
 			}
 			catch(Exception e)
 			{
@@ -493,6 +495,7 @@ public class EmployeeDatabase implements ActionListener, KeyListener
 				{
 					rs.next();
 					data();
+					enable1();
 				}
 			}
 			catch(Exception e)
@@ -513,6 +516,7 @@ public class EmployeeDatabase implements ActionListener, KeyListener
 				{
 					rs.previous();
 					data();
+					enable1();
 				}
 			}
 			catch(Exception e)
@@ -527,6 +531,7 @@ public class EmployeeDatabase implements ActionListener, KeyListener
 			{
 				rs.last();
 				data();
+				enable1();
 			}
 			catch(Exception e)
 			{
